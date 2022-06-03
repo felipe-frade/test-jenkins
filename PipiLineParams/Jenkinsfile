@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    
+    parameters {
+        booleanParam(defaultValue: false, description: "Executar teste?", name: "teste")
+    }
+    
+    stages {
+        stage("Teste 1") {
+            steps {
+                echo "Teste 1 foi marcado: ${params.teste}"
+            }
+        }
+    }
+}
