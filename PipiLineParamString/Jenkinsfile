@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    
+    parameters {
+        string(defaultValue: "TEST", description: "Qual ambiente, deploy?", name: "deployEnv")
+    }
+    
+    stages {
+        stage("Teste 1") {
+            steps {
+                echo "Teste 1 foi marcado: ${params.deployEnv}"
+            }
+        }
+    }
+}

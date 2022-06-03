@@ -1,0 +1,27 @@
+pipeline {
+    agent any
+    
+    parameters {
+        string(defaultValue: "Name", description: "Nome do deploy?", name: "deployName")
+        choice(choices: ["EU", "PT-BR"], description: "Lingua?", name: "lingua")
+        booleanParam(defaultValue: false, description: "Confirmar deploy?", name: "confirm")
+    }
+    
+    stages {
+        stage("Teste 1") {
+            steps {
+                echo "Nome: ${params.deployName}"
+            }
+        }
+        stage("Teste 2") {
+            steps {
+                echo "Língua: ${params.lingua}"
+            }
+        }
+        stage("Teste 3") {
+            steps {
+                echo "Confirmado: ${params.confirm}"
+            }
+        }
+    }
+}
